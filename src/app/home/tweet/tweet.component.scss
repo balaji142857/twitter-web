@@ -1,0 +1,66 @@
+@import '../../../assets/styles/colors';
+
+$mat-card-left-margin: 10%;
+
+.wrapper{
+  mat-card-header{
+    .user-profile{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-left: -10%;
+    }
+    .author{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      .prefix{
+        display: flex;
+        align-items: center;
+        span{
+          margin: 0 2px;
+        }
+        .author-name {
+          padding-left: $mat-card-left-margin / 5;
+          font-weight: bold;
+        }
+        span.verified mat-icon {
+          color: $primary;
+        }
+      }
+      .suffix{
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  mat-card-content {
+    padding-left: 6%;
+  }
+  mat-card-actions {
+    .actions{
+      display: flex;
+      margin: 10px 0;
+      padding-left: $mat-card-left-margin;
+      padding-right: $mat-card-left-margin / 2;
+      justify-content: space-between;
+      .action{
+        display: flex;
+        align-items: center;
+        mat-icon{
+          &.like:hover{
+            color: $like;
+          }
+          &.retweet:hover{
+            color: $retweet;
+          }
+          &.comment:hover, &.share:hover{
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}

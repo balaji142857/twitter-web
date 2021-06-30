@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="toolbar-row">
+      <div class="left">
+        <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+        <span>Toolbar (change title)</span>
+      </div>
+      <div class="right">
+        <mat-icon>more_vert</mat-icon>
+      </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container autosize class="content-container test">
+  <mat-drawer #drawer mode="side">
+    <mat-list>
+      <mat-list-item [routerLink]="menu.route" *ngFor="let menu of menuItems">
+          <mat-icon mat-list-icon>{{ menu.icon }}</mat-icon>
+          <h4 mat-line>{{ menu.title }}</h4>
+          <p mat-line *ngIf="menu.description">{{ menu.description }}</p>
+          <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <div class="router-container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
+<div class="footer">footer</div>
+</div>

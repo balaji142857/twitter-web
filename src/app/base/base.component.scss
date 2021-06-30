@@ -1,0 +1,27 @@
+
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .content-container{
+    height: 92%;
+    mat-list-item {
+      cursor: pointer;
+    }
+  }
+  mat-toolbar {
+    height: 6%;
+    .toolbar-row{
+      justify-content: space-between;
+      align-items: center;
+      .left, .right{
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  .footer{
+    height: 2%;
+  }
+}

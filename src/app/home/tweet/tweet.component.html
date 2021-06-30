@@ -1,0 +1,69 @@
+<mat-card class="wrapper">
+  <mat-card-header>
+    <div class="author">
+      <div class="prefix">
+        <img [src]="model.authorDp" alt="" class="user-profile">
+        <span class="author-name">
+          {{ model.authorName }}
+        </span>
+        <span class="verified" *ngIf="model.isAuthorVerified">
+          <mat-icon>verified</mat-icon>
+        </span>
+        <span class="author-handle">
+          {{ model.authorHandle }}
+        </span>
+        <span class="time-elapsed">
+          {{ model.issuedTime | date }}
+        </span>
+      </div>
+      <div class="suffix">
+        <span class="menu">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>plus_one</mat-icon>
+              <span>Follow</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>report</mat-icon>
+              <span>Report</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>volume_mute</mat-icon>
+              <span>Mute</span>
+            </button>
+          </mat-menu>
+        </span>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="tweet-text">
+      {{ model.tweetMessage }}
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="actions">
+      <div class="action">
+        <mat-icon class="comment">comment</mat-icon>
+        &nbsp;
+        <span>{{ model.actions.comments }}</span>
+      </div>
+      <div class="action">
+        <mat-icon class="retweet">cached</mat-icon>
+        &nbsp;
+        <span>{{ model.actions.retweets }}</span>
+      </div>
+      <div class="action">
+        <mat-icon class="like">favorite_border</mat-icon>
+        &nbsp;
+        <span>{{ model.actions.likes }}</span>
+      </div>
+      <div class="action">
+        <mat-icon class="share">share</mat-icon>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>
