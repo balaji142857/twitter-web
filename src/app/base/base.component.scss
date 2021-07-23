@@ -9,6 +9,9 @@
     mat-list-item {
       cursor: pointer;
     }
+    .router-container{
+      height: 100%;
+    }
   }
   mat-toolbar {
     height: 6%;
@@ -20,8 +23,5 @@
         align-items: center;
       }
     }
-  }
-  .footer{
-    height: 2%;
   }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TweetDialogComponent } from './tweet-dialog/tweet-dialog.component';
+import { TweetService } from './services/tweet.service';
 
 @Component({
   selector: 'app-home',
@@ -6,36 +9,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(public dialog: MatDialog, private service: TweetService) {}
 
-  tweets = [{
-    authorName: 'Narendra Modi',
-    isAuthorVerified: true,
-    authorHandle: '@narendramodi',
-    issuedTime: new Date(),
-    authorDp: 'assets/images/user.jpg',
-    tweetMessage:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    actions: {
-      likes: 1000,
-      retweets: 50000,
-      comments: 800,
-    }
-  },
-  {
-    authorName: 'Yogi Adityanath',
-    isAuthorVerified: true,
-    authorHandle: '@myogiadityanath',
-    issuedTime: new Date(),
-    authorDp: 'assets/images/yogi.jpg',
-    tweetMessage:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    actions: {
-      likes: 8000,
-      retweets: 120000,
-      comments: 80,
-    },
-  }]
+  tweets = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.getTweets().subscribe(
+      data=> {
+        console.log(data);
+        this.tweets = data;
+      },
+      err =>console.error(err)
+    )
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(TweetDialogComponent, {
+      height: '50%',
+      width: '80%',
+      position: {
+        left: '10%',
+        top: '10%'
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 }

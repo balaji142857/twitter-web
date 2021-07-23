@@ -6,14 +6,14 @@
         <span class="author-name">
           {{ model.authorName }}
         </span>
-        <span class="verified" *ngIf="model.isAuthorVerified">
+        <span class="verified" *ngIf="model.authorVerified">
           <mat-icon>verified</mat-icon>
         </span>
         <span class="author-handle">
           {{ model.authorHandle }}
         </span>
         <span class="time-elapsed">
-          {{ model.issuedTime | date }}
+          {{ model.issuedTime | date:'medium'}}
         </span>
       </div>
       <div class="suffix">
@@ -49,17 +49,17 @@
       <div class="action">
         <mat-icon class="comment">comment</mat-icon>
         &nbsp;
-        <span>{{ model.actions.comments }}</span>
+        <span>{{ model.comments }}</span>
       </div>
       <div class="action">
         <mat-icon class="retweet">cached</mat-icon>
         &nbsp;
-        <span>{{ model.actions.retweets }}</span>
+        <span>{{ model.retweets }}</span>
       </div>
       <div class="action">
         <mat-icon class="like">favorite_border</mat-icon>
         &nbsp;
-        <span>{{ model.actions.likes }}</span>
+        <span>{{ model.likes }}</span>
       </div>
       <div class="action">
         <mat-icon class="share">share</mat-icon>

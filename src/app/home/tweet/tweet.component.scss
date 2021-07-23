@@ -38,6 +38,9 @@ $mat-card-left-margin: 10%;
 
   mat-card-content {
     padding-left: 6%;
+    .tweet-text {
+       white-space: pre-wrap;
+    }
   }
   mat-card-actions {
     .actions{

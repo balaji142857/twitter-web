@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>{{ title }}</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-form-field appearance="fill">
+    <mat-label>Tweet Message</mat-label>
+    <textarea #tweetMsg matInput [(ngModel)]="model.tweetMessage"
+    maxlength="{{tweetChars}}" [rows]="tweetRows" name="tweet"></textarea>
+    <mat-hint align="end">{{tweetMsg.value?.length || 0}}/{{ tweetChars }}</mat-hint>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>
+    Cancel
+    &nbsp;
+    <mat-icon> cancel </mat-icon>
+  </button>
+  <!-- [mat-dialog-close]="true" -->
+  <button mat-raised-button  color="primary" class="tweet-button"
+  [disabled]="!tweetMsg.value.length" cdkFocusInitial (click)="post()">
+  Tweet
+  &nbsp;
+  <mat-icon>send</mat-icon>
+</button>
+</mat-dialog-actions>

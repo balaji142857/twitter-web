@@ -1,0 +1,14 @@
+
+.mat-typography {
+  display: flex;
+  justify-content: center;
+  mat-form-field {
+    flex-grow: 1;
+    textarea {
+      resize: none;
+    }
+  }
+}
+.tweet-button{
+  display: flex;
+}

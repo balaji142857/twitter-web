@@ -28,8 +28,32 @@ export class BaseComponent implements OnInit {
     {
       icon: 'perm_identity',
       title: 'User',
-      route: '/user',
+      route: '/login',
       description: 'Account page',
+    },
+    {
+      title: 'Messages',
+      icon: 'mail',
+      route: '/messgaes',
+      description: '',
+    },
+    {
+      title: 'Notifications',
+      icon: 'notifications',
+      route: '/notifications',
+      description: '',
+    },
+    {
+      title: 'Trending',
+      icon: 'trending_up',
+      route: '/trendings',
+      description: 'Trending topics',
+    },
+    {
+      title: 'Bookmarks',
+      icon: 'bookmark',
+      route: '/bookmarks',
+      description: '',
     },
   ];
 

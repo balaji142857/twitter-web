@@ -22,6 +22,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -47,6 +49,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatChipsModule,
     MatSnackBarModule,
     MatSortModule,
+    MatDialogModule,
   ],
   exports: [
     MatToolbarModule,
@@ -71,6 +74,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatChipsModule,
     MatSnackBarModule,
     MatSortModule,
+    MatDialogModule,
   ],
 })
 export class MaterialModule {}

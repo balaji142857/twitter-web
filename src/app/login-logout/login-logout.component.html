@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <div class="row">
+  <mat-form-field >
+    <mat-select [(ngModel)]="selectedUser" [disabled]="appEnv.loginId">
+      <mat-option *ngFor="let user of users" [value]="user.id">{{ user.handle }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button (click)="login(selectedUser)" [disabled]="!selectedUser || appEnv.loginId">Login</button>
+  <button mat-raised-button (click)="logout()" [disabled]="!appEnv.loginId">Logout</button>
+  </div>
+</div>
